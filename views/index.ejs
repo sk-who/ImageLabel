@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Upload Image to test Google Vision</p>
+    <form id="uploadForm" action="/uploadImage" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*">
+      <input type="submit" value="Upload Image">
+    </form>
+
+    <% if (typeof message !== 'undefined' && message) { %>
+      <p><%= message %></p>
+    <% } %>
+
+    <div id="uploadStatus" style="margin-top: 15px; font-weight: bold;">
+      <div id="resultContainer" style="display: flex; align-items: flex-start; gap: 20px;">
+        <img id="uploadedImage" src="" alt="Uploaded image preview"
+             style="max-width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: none;">
+
+        <ul id="labelList"
+            style="list-style: none; padding: 0; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">
+          <!-- labels go here -->
+        </ul>
+      </div>
+    </div>
+    <script src="/js/upload.js"></script>
+  </body>
+</html>
